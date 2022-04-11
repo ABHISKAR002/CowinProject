@@ -1,0 +1,124 @@
+*{ padding: 0px; }
+
+body{ box-sizing: border-box; background-color: #000; color: white; display: flex; justify-content: center; }
+
+::-webkit-scrollbar { display: none; }
+
+.container { width: 95%; }
+
+#comm {margin-bottom: 5px;}
+
+#livedetails{ line-height: 1.5; margin: 0; font-size: 1em; /*, 1vw);*/}
+
+#editpincode, #changepincode{ border: none; background-color: transparent; color: tomato;}
+
+#pineditor{ padding: 5px; color: turquoise; font-size: 1rem; display: none;}
+
+#pininput{ background-color: transparent; border-bottom: 1px solid white; outline: none; color: white; width: 50%; font-size: 1rem;}
+
+#changepincode{ border: none; background-color: transparent; color:turquoise; font-size: 1rem; margin-right: 5px;}
+
+#statusbar{ height: 8px; border: 1px solid cyan; overflow: hidden; position: relative; display: none;}
+
+#slider{ 
+    width: 50px; height: 8px; color: black; background-color: #71e49d; position: absolute; left: -50px; font-size: small; font-family: monospace;
+    display: flex; justify-content: center; align-items: center; --statusbar-width:1360px; }
+
+@keyframes loading {
+    0% { transform: translateX(0px);}
+    100% { transform: translateX(var(--statusbar-width));}
+}
+
+#menu{ border-top: 1px solid grey;  padding: 10px 0; display: flex; justify-content: space-between; align-items: center;}
+
+#mainmenu{display: flex;}
+
+#mainmenu :not(:last-child) { margin-right: 5px;}
+
+#find, #refstatus, #clrstatus{ padding: 0 5px; color: white; background-color: transparent; border-radius: 4px; transition: 0.5s;}
+
+#find:disabled, #refstatus:disabled,
+#clrstatus:disabled{ color:rgba(255, 255, 255, 0.5)}
+
+#find:hover:not(:disabled), #refstatus:hover:not(:disabled),
+#clrstatus:hover:not(:disabled){ color: black; background-color:white;}
+
+.timerbtns{ padding: 0 10px}
+
+select{ color: white; background-color: transparent;}
+
+option{ color: white; background-color: black; }
+
+#filters{ display: flex; border-top: 1px solid #777; padding: 10px 0;} 
+
+#filters span{ font-weight: bold; color: cyan;} 
+
+#agefilters{ flex: 33%; display: flex; justify-content: space-around;  position: relative; border-right: 2px solid grey;}
+
+#dosefilters{ flex: 33%; display: flex; justify-content: space-around;  position: relative; border-right: 2px solid grey;}
+
+#vaccinefilters{ flex: 33%; display: flex; justify-content: space-around; position: relative; }
+
+button.filter{ width: 80px; background: transparent; color: white; border: none; font-weight: bold; font-family: monospace;}
+
+#agehighlighter, #dosehighlighter, #vaccinehighlighter{
+    position: absolute; width: 85px; height: 20px; z-index: -1; background: rgba(255, 255, 255, 0.5); left: 40px; border-radius: 15px;
+    transition: 0.5s;
+}
+
+#dateselector{
+    display:flex; justify-content: space-around; align-items: center; position: relative; overflow: hidden;
+    border-top: 1px solid #777; border-bottom: 1px solid #777; padding: 5px 0 5px 0;
+}
+
+#datehighlighter{ --date-option-width:150px;
+    width: var(--date-option-width); height: 30px; background-color:rgba(0, 255, 255, 0.5); z-index: -5; position:absolute; border-radius: 15px;
+    transition: 1s cubic-bezier(0.18, 0.89, 0.32, 1.28); left: 100%; 
+} 
+
+.dateoption{
+    width: 150px; height: 35px; font-weight: bold; background-color: transparent; color: white; border: none; 
+}
+
+
+#livestatusfree{
+    display: flex;
+}
+
+.vcinfo{padding: 0 5px; font-weight: bold; color: cyan; background: transparent; margin-left: 10px;}
+
+#livefirstdiv{
+    padding-right: 5px; flex: 50%;
+}
+
+#livesecondiv{
+    flex: 50%; border-left: 2px solid gray; padding-left: 5px;
+}
+
+#cright{ color: gray; text-align: right;}
+
+#searchresult {display: none;} 
+
+
+
+/* FOR MOBILE VIEW */
+
+@media screen and (max-width:1000px) {
+
+	*{ outline: none;}
+
+    #livedetails{ line-height: 1.25; font-size: 0.75em;}
+
+    #livestatusfree, #menu, #filters, #mainmenu{ flex-direction: column;}
+
+    #mainmenu *{ margin-bottom: 5px; border-bottom: 1px solid grey;}
+    
+    #livesecondiv{ border: none;}
+    
+    #agefilters, #dosefilters { margin-bottom: 8px; border: none;}
+    
+    .dateoption{
+         font-size: 10px;
+    }
+}
+
